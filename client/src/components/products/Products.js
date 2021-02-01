@@ -6,7 +6,7 @@ import API from "../../const/API";
 import Card from "./card/Card";
 import Breadcrumb from "../breadcrumb/Breadcrumb";
 
-class SearchResults extends Component {
+class Products extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -83,4 +83,4 @@ class SearchResults extends Component {
     }
 }
 
-export default withRouter(SearchResults);
+export default withRouter(Products);

@@ -6,10 +6,6 @@ class Response {
     constructor() {
         this.author = new Author("Sebastian", "Velo");
     }
-    
-    getFilter(filters, id) {
-        return filters.find(filter => filter.id === id);
-    }
 }
 
 class ResponseItem extends Response {
@@ -19,18 +15,22 @@ class ResponseItem extends Response {
     }
 }
 
+class ResponseCategory extends Response {
+    constructor(response) {
+        super();
+        this.fullPath = response.path_from_root;
+    }
+}
+
 class ResponseSearch extends Response {
     constructor(response) {
         super();
         this.categories = this.getFilter(response.available_filters, "category").values.map(value => new Category(value));
         this.items = response.results.map(result => new Product(result));
     }
-}
-
-class ResponseCategory extends Response {
-    constructor(response) {
-        super();
-        this.fullPath = this.getFilter(response.filters, "category").values[0].path_from_root;
+    
+    getFilter(filters, id) {
+        return filters.find(filter => filter.id === id);
     }
 }
 
