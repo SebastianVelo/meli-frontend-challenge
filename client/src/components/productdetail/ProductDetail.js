@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { withRouter } from "react-router";
+import API from "../../const/API";
 
 import Breadcrumb from "../breadcrumb/Breadcrumb";
 
@@ -15,9 +16,15 @@ class ProductDetail extends Component {
     }
 
     async getProduct() {
-        fetch("http://localhost:5000/api/items/" + this.props.match.params.id)
+        this.setState({ inProcess: true });
+        
+        await fetch(API.PATH_ITEMS + this.props.match.params.id)
             .then(res => res.json())
-            .then(responseProduct => this.setState({ responseProduct: responseProduct, inProcess: false }));
+            .then(responseProduct => this.setState({responseProduct}));
+
+        await fetch(API.PATH_CATEGORY + this.state.responseProduct.item.category)
+            .then(res => res.json())
+            .then(categories => this.setState({ categories: categories, inProcess: false }));
     }
 
     async componentDidMount() {
@@ -28,7 +35,6 @@ class ProductDetail extends Component {
         let prevId = prevProps.match.params.id;
         let id = this.props.match.params.id;
         if (prevId !== id) {
-            this.setState({ inProcess: true });
             await this.getProduct();
         }
     }
@@ -39,7 +45,7 @@ class ProductDetail extends Component {
             !this.state.inProcess &&
             <div className="grid">
                 <div className="col-10 offset-2">
-                    <Breadcrumb />
+                    <Breadcrumb items={this.state.categories.fullPath} />
                 </div>
                 <div className="col-10 offset-2 grid product-detail">
                     <div className="col-9">

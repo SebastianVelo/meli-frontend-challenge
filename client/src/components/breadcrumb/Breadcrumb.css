@@ -11,7 +11,3 @@ ul.breadcrumb li+li:before {
     padding: 8px;
     content: ">";
 }
-
-.bc-active {
-    font-weight: bolder;
-}
