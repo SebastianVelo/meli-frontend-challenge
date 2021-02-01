@@ -25,7 +25,10 @@ class ResponseCategory extends Response {
 class ResponseSearch extends Response {
     constructor(response) {
         super();
-        this.categories = this.getFilter(response.available_filters, "category").values.map(value => new Category(value));
+        let filters = this.getFilter(response.available_filters, "category");
+        if(!filters)
+            filters = this.getFilter(response.filters, "category");
+        this.categories = filters.values.map(value => new Category(value));
         this.items = response.results.map(result => new Product(result));
     }
     
