@@ -11,6 +11,10 @@
     border-bottom-left-radius: 4px;
 }
 
+.card-content {
+    margin-left: 60px;
+}
+
 .card-price {
     font-size: 24px;
     margin-bottom: 32px;
