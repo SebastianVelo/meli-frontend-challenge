@@ -49,10 +49,10 @@ class Products extends Component {
             .then(res => res.json())
             .then(responseSearch => this.setState({ responseSearch }));
 
-        let categoriesSortedByResults = this.state.responseSearch.categories.sort((c1, c2) => c2.results - c1.results);
-        await fetch(API.PATH_CATEGORY + categoriesSortedByResults[0].id)
+        let id = type === "category=" ? query : this.state.responseSearch.categories.sort((c1, c2) => c2.results - c1.results)[0].id;
+        await fetch(API.PATH_CATEGORY + id)
             .then(res => res.json())
-            .then(categories => this.setState({ categories: categories, inProcess: false }));
+            .then(categories => this.setState({ categories, inProcess: false }));
 
         this.setPaging();
     }
