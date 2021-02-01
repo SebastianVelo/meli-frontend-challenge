@@ -1,0 +1,17 @@
+.breadcrumb {
+    margin: 16px 0px; 
+    color: var(--grey-light-color);  
+}
+
+ul.breadcrumb li {
+    display: inline;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    content: ">";
+}
+
+.bc-active {
+    font-weight: bolder;
+}

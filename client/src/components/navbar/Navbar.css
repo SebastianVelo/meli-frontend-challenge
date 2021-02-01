@@ -1,0 +1,14 @@
+nav {
+    top: 0;
+    background-color: var(--main-color);
+    width: 100vw;
+    height: 50px;
+    padding: 5px 0px;
+    display: flex;
+    align-items: center;
+}
+
+nav > div {
+    display: flex;
+    align-items: center;
+}

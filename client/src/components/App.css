@@ -1,0 +1,20 @@
+:root {
+    --main-color: #FFE600;
+    --dark-color: #333;
+    --grey-dark-color: #666;
+    --grey-light-color: #999;
+    --grey-color: #EEE;
+    --white-color: #FFF;
+    --blue-color: #3483FA;
+
+    --grid-size: 12;
+}
+
+.button-primary {
+    width: calc(100% - 32px);
+    height: 35px;
+    background-color: var(--blue-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

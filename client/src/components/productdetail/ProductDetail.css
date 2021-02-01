@@ -1,0 +1,38 @@
+.product-detail {
+    background-color: var(--white-color);
+}
+
+.product-detail-img {
+    width: 680px;
+}
+
+.product-detail-info {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.product-detail-name {
+    margin-right: 32px;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.product-detail-price {
+    font-size: 46px;
+    margin: 32px unset;
+}
+
+.product-detail-title {
+    font-size: 28px;
+}
+
+.product-detail-description {
+    font-size: 16px;
+    text-align: justify;
+}
+
+.product-detail-title, .product-detail-description, .product-detail-img {
+    margin-bottom: 32px;
+    margin-left: 32px;
+}

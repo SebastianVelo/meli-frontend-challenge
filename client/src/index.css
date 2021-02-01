@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    top: 0;
+    background-color: var(--grey-color);
+    overflow-x: hidden;
+    font-family: Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto, Arial,sans-serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}

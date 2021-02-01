@@ -1,0 +1,30 @@
+.card {
+    background-color: var(--white-color);
+    border-bottom: 1px solid var(--grey-color);
+    margin-bottom: 0px;
+}
+
+.item-image {
+    width: 180px;
+    height: 180px;
+    border-bottom-left-radius: 4px;
+    margin: 16px;
+}
+
+.card-price {
+    font-size: 24px;
+    margin-bottom: 32px;
+}
+
+.card-title {
+    font-size: 18px;
+}
+
+.card-location {
+    font-size: 12px;
+    text-align: center;
+}
+
+.card-wrapper {
+    margin: auto;
+}
