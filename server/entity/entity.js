@@ -19,7 +19,7 @@ class Product {
         this.city = response.address ? response.address.state_name : "";
         this.picture = response.thumbnail;
         this.condition = response.condition === "new" ? "Nuevo" : "Usado";
-        this.freeShipping = response.free_shipping;
+        this.freeShipping = response.shipping.free_shipping;
         this.soldQuantity = response.sold_quantity;
         this.description = description;
         this.price = {
