@@ -9,6 +9,7 @@ class Category {
     constructor(response) {
         this.id = response.id;
         this.name = response.name;
+        this.results = response.results;
     }
 }
 
