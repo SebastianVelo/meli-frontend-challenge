@@ -6,6 +6,8 @@ import API from "../../const/API";
 import Card from "./card/Card";
 import Breadcrumb from "../breadcrumb/Breadcrumb";
 
+import "./Products.css";
+
 class Products extends Component {
     constructor(props) {
         super(props);
@@ -69,7 +71,7 @@ class Products extends Component {
     render() {
         return (
             !this.state.inProcess &&
-            <div className="grid">
+            <div className="grid products-wrapper">
                 <div className="col-10 offset-2">
                     <Breadcrumb items={this.state.categories.fullPath} />
                 </div>
