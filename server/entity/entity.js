@@ -1,3 +1,5 @@
+const util = require('../util/util');
+
 class Author {
     constructor(name, lastname){
         this.name = name;
@@ -17,15 +19,15 @@ class Product {
     constructor(response, description) {
         this.id = response.id;
         this.title = response.title;
+        this.condition = util.getCondition(response.condition);
+        this.description = util.getDescription(description);
         this.picture = response.thumbnail;
         this.freeShipping = response.shipping.free_shipping;
         this.soldQuantity = response.sold_quantity;
-        this.description = description;
         this.category = response.category_id;
         this.city = response.address ? response.address.state_name : "";
-        this.condition = response.condition === "new" ? "Nuevo" : "Usado";
         this.price = {
-            currency: response.currency_id === "ARS" ? "$" : response.currency_id,
+            currency: util.getCurrencySymbol(response.currency_id),
             amount: response.price
         }
     }

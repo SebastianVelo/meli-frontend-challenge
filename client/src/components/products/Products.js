@@ -26,7 +26,7 @@ class Products extends Component {
     setPaging() {
         let products = this.state.responseSearch.items;
         let paging = {
-            totalPages: products.size / 4,
+            totalPages: Math.ceil(products.size / 4),
             page: 0,
             perPage: 4
         }
@@ -44,11 +44,12 @@ class Products extends Component {
         this.setState({ inProcess: true });
 
         let query = queryString.parse(this.props.location.search).search;
-        await fetch(API.PATH_SEARCH + query)
+        let type = queryString.parse(this.props.location.search).type;
+        await fetch(API.PATH_SEARCH + type + query)
             .then(res => res.json())
-            .then(responseSearch => this.setState({responseSearch}));
+            .then(responseSearch => this.setState({ responseSearch }));
 
-        let categoriesSortedByResults = this.state.responseSearch.categories.sort((c1, c2) => c2.results-c1.results);
+        let categoriesSortedByResults = this.state.responseSearch.categories.sort((c1, c2) => c2.results - c1.results);
         await fetch(API.PATH_CATEGORY + categoriesSortedByResults[0].id)
             .then(res => res.json())
             .then(categories => this.setState({ categories: categories, inProcess: false }));

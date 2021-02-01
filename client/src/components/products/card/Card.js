@@ -13,7 +13,9 @@ function Card(props) {
                 </Link>
             </div>
             <div className="col-7 card-content">
-                <p className="card-price">{props.product.price.currency} {props.product.price.amount} {props.product.freeShipping && <img src={freeshipping} alt="Envio gratis!" />} </p>
+                <p className="card-price">
+                    {props.product.price.currency} {props.product.price.amount} {props.product.freeShipping && <img src={freeshipping} alt="Envio gratis!" />}
+                </p>
                 <Link to={{ pathname: "/items/" + props.product.id }}>
                     <p className="card-title">
                         {props.product.title}

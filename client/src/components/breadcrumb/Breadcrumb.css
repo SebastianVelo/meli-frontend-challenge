@@ -1,6 +1,6 @@
 .breadcrumb {
     margin: 16px 0px; 
-    color: var(--grey-light-color);  
+    color: var(--grey-dark-color);  
 }
 
 ul.breadcrumb li {
@@ -10,4 +10,5 @@ ul.breadcrumb li {
 ul.breadcrumb li+li:before {
     padding: 8px;
     content: ">";
+    font-weight: bolder;
 }
