@@ -9,10 +9,7 @@ const request = async (URL, method) => {
     try {
         let dataFetched = await fetch(URL, {
             method: method,
-            headers: {
-                "Accept": 'application/json',
-                "Content-type": 'application/json'
-            }
+            headers: { "Accept": 'application/json', "Content-type": 'application/json' }
         });
         let response = await dataFetched.json();
         return response;
@@ -22,8 +19,8 @@ const request = async (URL, method) => {
 }
 
 const getSearch = async (query) => {
-    let response = await request(API.PATH_SEARCH(query), "GET");
-    return new ResponseSearch(response);
+    let search = await request(API.PATH_SEARCH(query), "GET");
+    return new ResponseSearch(search);
 };
 
 const getCategoryById = async (id) => {
@@ -34,12 +31,12 @@ const getCategoryById = async (id) => {
 const getItemById = async (id) => {
     let item = await request(API.PATH_ITEM(id), "GET");
     let description = await getItemDescription(id);
-    return new ResponseItem(item, description.plain_text);
+    return new ResponseItem(item, description);
 };
 
 const getItemDescription = async (id) => {
-    let item = await request(API.PATH_ITEM_DESCRIPTION(id), "GET");
-    return item;
+    let description = await request(API.PATH_ITEM_DESCRIPTION(id), "GET");
+    return description;
 };
 
 module.exports.getSearch = getSearch;

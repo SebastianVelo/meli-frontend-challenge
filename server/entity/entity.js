@@ -28,7 +28,9 @@ class Product {
         this.city = response.address ? response.address.state_name : "";
         this.price = {
             currency: util.getCurrencySymbol(response.currency_id),
-            amount: response.price
+            amount: response.price,
+            amountFormatted: util.getPriceFormat(response.price),
+            decimals: util.getDecimals(response.price)
         }
     }
 }

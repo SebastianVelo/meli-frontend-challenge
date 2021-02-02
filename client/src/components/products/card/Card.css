@@ -20,6 +20,13 @@
     margin-bottom: 32px;
 }
 
+.card-price-decimals {
+    margin-left: 2px;
+    position: relative;
+    top: -10px;
+    font-size: 14px;
+}
+
 .card-title {
     font-size: 18px;
 }

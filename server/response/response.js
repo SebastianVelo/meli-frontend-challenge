@@ -6,12 +6,12 @@ class Response {
     constructor() {
         this.author = new Author("Sebastian", "Velo");
     }
-}
+} 
 
 class ResponseItem extends Response {
     constructor(response, description) {
         super();
-        this.item = new Product(response, description);
+        this.item = new Product(response, description.plain_text);
     }
 }
 

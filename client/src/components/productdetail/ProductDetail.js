@@ -16,15 +16,14 @@ class ProductDetail extends Component {
     }
 
     async getProduct() {
-        this.setState({ inProcess: true });
-        
         await fetch(API.PATH_ITEMS + this.props.match.params.id)
             .then(res => res.json())
-            .then(responseProduct => this.setState({responseProduct}));
+            .then(responseProduct => this.setState({ responseProduct }));
 
         await fetch(API.PATH_CATEGORY + this.state.responseProduct.item.category)
             .then(res => res.json())
             .then(categories => this.setState({ categories: categories, inProcess: false }));
+
     }
 
     async componentDidMount() {
@@ -35,6 +34,7 @@ class ProductDetail extends Component {
         let prevId = prevProps.match.params.id;
         let id = this.props.match.params.id;
         if (prevId !== id) {
+            this.setState({ inProcess: true });
             await this.getProduct();
         }
     }
@@ -54,7 +54,9 @@ class ProductDetail extends Component {
                     <div className="col-3">
                         <p className="product-detail-info">{product.condition} - {product.soldQuantity} vendidos </p>
                         <p className="product-detail-name">{product.title}</p>
-                        <p className="product-detail-price">{product.price.currency} {product.price.amount} </p>
+                        <p className="product-detail-price">{product.price.currency} {product.price.amountFormatted}
+                            <span className="product-detail-price-decimals">{product.price.decimals}</span>
+                        </p>
                         <button className="button-primary">Comprar</button>
                     </div>
                     <div className="col-9">
